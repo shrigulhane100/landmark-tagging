@@ -14492,10 +14492,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14505,9 +14501,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14608,8 +14621,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Convolutional-Neural-Networks">Convolutional Neural Networks<a class="anchor-link" href="#Convolutional-Neural-Networks">&#182;</a></h1><h2 id="Project:-Write-an-Algorithm-for-Landmark-Classification">Project: Write an Algorithm for Landmark Classification<a class="anchor-link" href="#Project:-Write-an-Algorithm-for-Landmark-Classification">&#182;</a></h2><h3 id="Transfer-learning">Transfer learning<a class="anchor-link" href="#Transfer-learning">&#182;</a></h3><p>In the previous notebook we have trained our own CNN and we got a certain performance. Let's see how hard it is to match that performance with transfer learning.</p>
-<hr>
-<h2 id="-Step-0:-Setting-up"><img src="static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 0: Setting up<a class="anchor-link" href="#-Step-0:-Setting-up">&#182;</a></h2><p>The following cells make sure that your environment is setup correctly and check that your GPU is available and ready to go. You have to execute them every time you restart your notebook.</p>
+<hr />
+<h2 id="-Step-0:-Setting-up"><img src="../static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 0: Setting up<a class="anchor-link" href="#-Step-0:-Setting-up">&#182;</a></h2><p>The following cells make sure that your environment is setup correctly and check that your GPU is available and ready to go. You have to execute them every time you restart your notebook.</p>
 
 </div>
 </div>
@@ -14619,47 +14632,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>True
-</pre>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Install requirements</span>
@@ -14678,9 +14651,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14767,9 +14738,7 @@ Successfully installed bokeh-3.2.1 exceptiongroup-1.1.2 iniconfig-2.0.0 liveloss
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14791,7 +14760,7 @@ Successfully installed bokeh-3.2.1 exceptiongroup-1.1.2 iniconfig-2.0.0 liveloss
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">src.helpers</span> <span class="kn">import</span> <span class="n">setup_env</span>
@@ -14812,9 +14781,7 @@ Successfully installed bokeh-3.2.1 exceptiongroup-1.1.2 iniconfig-2.0.0 liveloss
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14838,8 +14805,8 @@ Reusing cached mean and std
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h2 id="-Step-1:-Create-transfer-learning-architecture"><img src="static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 1: Create transfer learning architecture<a class="anchor-link" href="#-Step-1:-Create-transfer-learning-architecture">&#182;</a></h2><p>Open the file <code>src/transfer.py</code> and complete the <code>get_model_transfer_learning</code> function. When you are done, execute this test:</p>
+<hr />
+<h2 id="-Step-1:-Create-transfer-learning-architecture"><img src="../static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 1: Create transfer learning architecture<a class="anchor-link" href="#-Step-1:-Create-transfer-learning-architecture">&#182;</a></h2><p>Open the file <code>src/transfer.py</code> and complete the <code>get_model_transfer_learning</code> function. When you are done, execute this test:</p>
 
 </div>
 </div>
@@ -14849,7 +14816,7 @@ Reusing cached mean and std
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pytest<span class="w"> </span>-vv<span class="w"> </span>src/transfer.py
@@ -14866,9 +14833,7 @@ Reusing cached mean and std
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15001,8 +14966,8 @@ FAILED src/transfer.py::test_get_model_transfer_learning - AttributeError: &#39;
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h2 id="-Step-2:-Train,-validation-and-test"><img src="static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 2: Train, validation and test<a class="anchor-link" href="#-Step-2:-Train,-validation-and-test">&#182;</a></h2><p>Let's train our transfer learning model! Let's start defining the hyperparameters:</p>
+<hr />
+<h2 id="-Step-2:-Train,-validation-and-test"><img src="../static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 2: Train, validation and test<a class="anchor-link" href="#-Step-2:-Train,-validation-and-test">&#182;</a></h2><p>Let's train our transfer learning model! Let's start defining the hyperparameters:</p>
 
 </div>
 </div>
@@ -15012,7 +14977,7 @@ FAILED src/transfer.py::test_get_model_transfer_learning - AttributeError: &#39;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">64</span>  <span class="c1"># size of the minibatch for stochastic gradient descent (or Adam)</span>
@@ -15034,7 +14999,7 @@ FAILED src/transfer.py::test_get_model_transfer_learning - AttributeError: &#39;
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">src.data</span> <span class="kn">import</span> <span class="n">get_data_loaders</span>
@@ -15082,9 +15047,7 @@ FAILED src/transfer.py::test_get_model_transfer_learning - AttributeError: &#39;
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15147,8 +15110,8 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h2 id="-Step-3:-Test-the-Model"><img src="static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 3: Test the Model<a class="anchor-link" href="#-Step-3:-Test-the-Model">&#182;</a></h2><p>Try out your model on the test dataset of landmark images. Use the code cell below to calculate and print the test loss and accuracy.  Ensure that your test accuracy is greater than 60% and matches more or less what you got on the validation set (otherwise you're overfitting!)</p>
+<hr />
+<h2 id="-Step-3:-Test-the-Model"><img src="../static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 3: Test the Model<a class="anchor-link" href="#-Step-3:-Test-the-Model">&#182;</a></h2><p>Try out your model on the test dataset of landmark images. Use the code cell below to calculate and print the test loss and accuracy.  Ensure that your test accuracy is greater than 60% and matches more or less what you got on the validation set (otherwise you're overfitting!)</p>
 
 </div>
 </div>
@@ -15158,7 +15121,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
@@ -15183,9 +15146,7 @@ class="
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15194,9 +15155,7 @@ class="
 <pre>Testing: 100%|██████████████████████████████████| 20/20 [00:44&lt;00:00,  2.21s/it]</pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15209,9 +15168,7 @@ Test Accuracy: 71% (894/1250)
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15221,11 +15178,9 @@ Test Accuracy: 71% (894/1250)
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
 
@@ -15247,8 +15202,8 @@ Test Accuracy: 71% (894/1250)
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h2 id="-Step-4:-Export-using-torchscript"><img src="static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 4: Export using torchscript<a class="anchor-link" href="#-Step-4:-Export-using-torchscript">&#182;</a></h2><p>Now, just like we did with our original model, we export the best fit model using torchscript so that it can be used in our application:</p>
+<hr />
+<h2 id="-Step-4:-Export-using-torchscript"><img src="../static_images/icons/noun-advance-2109145.png" alt="&gt;" style="width:50px" /> Step 4: Export using torchscript<a class="anchor-link" href="#-Step-4:-Export-using-torchscript">&#182;</a></h2><p>Now, just like we did with our original model, we export the best fit model using torchscript so that it can be used in our application:</p>
 
 </div>
 </div>
@@ -15258,7 +15213,7 @@ Test Accuracy: 71% (894/1250)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">src.predictor</span> <span class="kn">import</span> <span class="n">Predictor</span>
@@ -15298,9 +15253,7 @@ Test Accuracy: 71% (894/1250)
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15320,7 +15273,7 @@ Test Accuracy: 71% (894/1250)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
@@ -15345,9 +15298,7 @@ Test Accuracy: 71% (894/1250)
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15360,9 +15311,7 @@ Test Accuracy: 71% (894/1250)
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15372,9 +15321,7 @@ Test Accuracy: 71% (894/1250)
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
