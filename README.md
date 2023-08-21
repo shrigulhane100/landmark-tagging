@@ -49,6 +49,8 @@ This setup requires a bit of familiarity with creating a working deep learning e
 	```
 
 
+![](https://github.com/shrigulhane100/landmark-tagging/blob/main/static_images/test/16.Eiffel_Tower/3828627c8730f160.jpg?raw=true)
+
 
 ## I. Create a CNN to Classify Landmarks from Scratch 🖼️
 
