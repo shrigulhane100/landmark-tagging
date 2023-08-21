@@ -2,7 +2,7 @@
 
 Welcome to the Landmark Classification project! In this exciting endeavor, we'll be delving into the world of computer vision, specifically tackling the challenge of automatically predicting the location of images based on the landmarks depicted in them. Through the application of Convolutional Neural Networks (CNNs), transfer learning, and various image processing techniques, we'll create models capable of recognizing landmarks and enhancing the user experience on photo sharing platforms. 🌍📸
 
-
+![](https://github.com/shrigulhane100/landmark-tagging/blob/main/static_images/test/09.Golden_Gate_Bridge/190f3bae17c32c37.jpg?raw=true)
 
 ## Project Overview 🏞️
 
@@ -13,6 +13,7 @@ In this project, Task will be building a landmark classifier to predict the loca
 Photo sharing services often lack location data for uploaded photos, such asautomatic suggestion of relevant tags. Sometimes many photos uploaded to these services will not have location metadata available because smartphone does not have GPS or if a photo's metadata is scrubbed due to privacy concerns.
 One way to infer the location is to detect and classify landmarks in the image. This project will build a CNN-powered app to automatically predict the location of an image based on landmarks and suggest the top k most relevant landmarks from 50 possible landmarks from across the world.
 
+![](https://github.com/shrigulhane100/landmark-tagging/blob/main/static_images/test/37.Atomium/5ecb74282baee5aa.jpg?raw=true)
 
 #### Setting up locally
 
@@ -47,6 +48,8 @@ This setup requires a bit of familiarity with creating a working deep learning e
 		jupyter lab
 	```
 
+
+![](https://github.com/shrigulhane100/landmark-tagging/blob/main/static_images/test/16.Eiffel_Tower/3828627c8730f160.jpg?raw=true)
 
 
 ## I. Create a CNN to Classify Landmarks from Scratch 🖼️
