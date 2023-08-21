@@ -1,35 +1,16 @@
-## Project Overview
+# Landmark Classification & Tagging for Social Media 📷🗺️
 
-Welcome to the Convolutional Neural Networks (CNN) project!
-In this project, you will learn how to build a pipeline to process real-world, user-supplied images and to put your model into an app.
-Given an image, your app will predict the most likely locations where the image was taken.
+Welcome to the Landmark Classification project! In this exciting endeavor, we'll be delving into the world of computer vision, specifically tackling the challenge of automatically predicting the location of images based on the landmarks depicted in them. Through the application of Convolutional Neural Networks (CNNs), transfer learning, and various image processing techniques, we'll create models capable of recognizing landmarks and enhancing the user experience on photo sharing platforms. 🌍📸
 
-By completing this lab, you demonstrate your understanding of the challenges involved in piecing together a series of models designed to perform various tasks in a data processing pipeline. 
+## Project Overview 🏞️
 
-Each model has its strengths and weaknesses, and engineering a real-world application often involves solving many problems without a perfect answer.
+In this project, Task will be building a landmark classifier to predict the location of images based on the landmarks present in them. The goal is to provide meaningful tags and location information for photos that lack location metadata, ultimately enhancing the user experience on photo sharing platforms. We'll embark on the machine learning design process, encompassing data preprocessing, CNN design and training, transfer learning, model evaluation, and the development of a user-friendly app. The skills applied include CNN fundamentals, transfer learning, autoencoders, object detection, and object segmentation.
 
-### Why We're Here
+### Motivation behind the project
 
-Photo sharing and photo storage services like to have location data for each photo that is uploaded. With the location data, these services can build advanced features, such as automatic suggestion of relevant tags or automatic photo organization, which help provide a compelling user experience. Although a photo's location can often be obtained by looking at the photo's metadata, many photos uploaded to these services will not have location metadata available. This can happen when, for example, the camera capturing the picture does not have GPS or if a photo's metadata is scrubbed due to privacy concerns.
+Photo sharing services often lack location data for uploaded photos, such asautomatic suggestion of relevant tags. Sometimes many photos uploaded to these services will not have location metadata available because smartphone does not have GPS or if a photo's metadata is scrubbed due to privacy concerns.
+One way to infer the location is to detect and classify landmarks in the image. This project will build a CNN-powered app to automatically predict the location of an image based on landmarks and suggest the top k most relevant landmarks from 50 possible landmarks from across the world.
 
-If no location metadata for an image is available, one way to infer the location is to detect and classify a discernable landmark in the image. Given the large number of landmarks across the world and the immense volume of images that are uploaded to photo sharing services, using human judgement to classify these landmarks would not be feasible.
-
-In this project, you will take the first steps towards addressing this problem by building a CNN-powered app to automatically predict the location of the image based on any landmarks depicted in the image. At the end of this project, your app will accept any user-supplied image as input and suggest the top k most relevant landmarks from 50 possible landmarks from across the world.
-
-
-## Project Instructions
-
-### Getting started
-
-You have two choices for completing this project. You can work locally on your machine (NVIDIA GPU highly recommended), or you can work in the provided Udacity workspace that you can find in your classroom.
-
-#### Setting up in the Udacity Project Workspace
-You can find the Udacity Project Workspace in your Udacity classroom, in the Project section.
-
-1. Start the workspace by clicking on `Project Workspace` in the left menu in the page
-2. When prompted on whether you want a GPU or not, please ANSWER YES (the GPU is going to make everything several times faster)
-
-The environment is already setup for you, including the starter code, so you can jump right into building the project!
 
 #### Setting up locally
 
@@ -64,32 +45,50 @@ This setup requires a bit of familiarity with creating a working deep learning e
 		jupyter lab
 	```
 
-### Developing your project
 
-Now that you have a working environment, execute the following steps:
 
->**Note:** Complete the following notebooks in order, do not move to the next step if you didn't complete the previous one.
+## I. Create a CNN to Classify Landmarks from Scratch 🖼️
 
-1. Open the `cnn_from_scratch.ipynb` notebook and follow the instructions there
-2. Open `transfer_learning.ipynb` and follow the instructions
-3. Open `app.ipynb` and follow the instructions there
+### 1. Data Loading and Exploration 📊
 
-## Evaluation
+- Prepared data for neural networks, incorporating image preprocessing and augmentation techniques.
+- Utilized PyTorch's DataLoader to efficiently feed training data.
+- Applied normalization to enhance model convergence.
+- Visualized a batch of images to gain insights into the data.
 
-Your project will be reviewed by a Udacity reviewer against the CNN project rubric.  Review this rubric thoroughly and self-evaluate your project before submission.  All criteria found in the rubric must meet specifications for you to pass.
+### 2. Model Design and Training 🧠
 
-## Project Submission
+- Designed and implemented a CNN architecture for image classification from scratch.
+- Chose an appropriate loss function, optimizer, and learning rate scheduler.
+- Trained the CNN model using the training dataset.
+- Explored different architecture configurations and layer types to enhance model performance.
 
-Your submission should consist of the github link to your repository.  Your repository should contain:
-- The `landmark.ipynb` file with fully functional code, all code cells executed and displaying output, and all questions answered.
-- An HTML or PDF export of the project notebook with the name `report.html` or `report.pdf`.
+### 3. Model Testing and Evaluation 🧪
 
-Please do __NOT__ include any of the project data sets provided in the `landmark_images/` folder.
+- Evaluated the trained model's performance using the holdout set.
+- Fine-tuned hyperparameters and model architecture to achieve higher accuracy.
+- Achieved a test accuracy of **56%** by iteratively refining the CNN model over **120 epochs**.
 
-### Ready to submit your project?
+### 4. Export the Model 🔗
 
-Click on the "Submit Project" button in the classroom and follow the instructions to submit!
+- Exported the trained model using TorchScript for deployment.
 
-## Dataset Info
+## II. Use Transfer Learning 🚀
 
-The landmark images are a subset of the Google Landmarks Dataset v2.
+### 1. Create Transfer Learning Architecture 🏗️
+
+- Implemented transfer learning using the **ResNet18** architecture.
+- Justified the choice of ResNet18 and leveraged its pre-trained weights.
+- Achieved a test accuracy of **72%** by leveraging the power of transfer learning.
+
+### 2. Export the Model 🔗
+
+- Exported the transfer learning model using TorchScript for deployment.
+
+## III. Write Your Application 📱
+
+- Developed a simple application for testing the trained models.
+- Uploaded images of landmarks to the app to observe model behavior.
+- The app displayed the top 5 predicted classes for each uploaded image, providing insights into the model's performance.
+
+#### 📷🌆
