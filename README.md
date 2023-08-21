@@ -13,6 +13,7 @@ In this project, Task will be building a landmark classifier to predict the loca
 Photo sharing services often lack location data for uploaded photos, such asautomatic suggestion of relevant tags. Sometimes many photos uploaded to these services will not have location metadata available because smartphone does not have GPS or if a photo's metadata is scrubbed due to privacy concerns.
 One way to infer the location is to detect and classify landmarks in the image. This project will build a CNN-powered app to automatically predict the location of an image based on landmarks and suggest the top k most relevant landmarks from 50 possible landmarks from across the world.
 
+![](https://github.com/shrigulhane100/landmark-tagging/blob/main/static_images/test/37.Atomium/5ecb74282baee5aa.jpg?raw=true)
 
 #### Setting up locally
 
