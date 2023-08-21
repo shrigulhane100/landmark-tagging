@@ -2,6 +2,8 @@
 
 Welcome to the Landmark Classification project! In this exciting endeavor, we'll be delving into the world of computer vision, specifically tackling the challenge of automatically predicting the location of images based on the landmarks depicted in them. Through the application of Convolutional Neural Networks (CNNs), transfer learning, and various image processing techniques, we'll create models capable of recognizing landmarks and enhancing the user experience on photo sharing platforms. 🌍📸
 
+[]('https://github.com/shrigulhane100/landmark-tagging/blob/main/static_images/test/09.Golden_Gate_Bridge/190f3bae17c32c37.jpg')
+
 ## Project Overview 🏞️
 
 In this project, Task will be building a landmark classifier to predict the location of images based on the landmarks present in them. The goal is to provide meaningful tags and location information for photos that lack location metadata, ultimately enhancing the user experience on photo sharing platforms. We'll embark on the machine learning design process, encompassing data preprocessing, CNN design and training, transfer learning, model evaluation, and the development of a user-friendly app. The skills applied include CNN fundamentals, transfer learning, autoencoders, object detection, and object segmentation.
