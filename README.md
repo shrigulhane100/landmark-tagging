@@ -22,8 +22,8 @@ This setup requires a bit of familiarity with creating a working deep learning e
 1. Open a terminal and clone the repository, then navigate to the downloaded folder:
 	
 	```	
-		git clone https://github.com/udacity/cd1821-CNN-project-starter.git
-		cd cd1821-CNN-project-starter
+		git clone https://github.com/shrigulhane100/landmark-tagging.git
+		cd 
 	```
     
 2. Create a new conda environment with python 3.7.6:
